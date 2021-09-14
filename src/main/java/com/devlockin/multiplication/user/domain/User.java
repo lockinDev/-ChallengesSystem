@@ -1,4 +1,4 @@
-package com.devlockin.multiplication.domain.user;
+package com.devlockin.multiplication.user.domain;
 
 import lombok.*;
 /**

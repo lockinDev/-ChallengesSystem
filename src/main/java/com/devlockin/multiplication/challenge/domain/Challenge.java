@@ -1,4 +1,4 @@
-package com.devlockin.multiplication.domain.challenge;
+package com.devlockin.multiplication.challenge.domain;
 
 import lombok.*;
 /**
