@@ -17,7 +17,7 @@ public class ChallengeGeneratorServiceImpl implements ChallengeGeneratorService 
         this.random = new Random();
     }
 
-    protected ChallengeGeneratorServiceImpl(final Random random) {
+    public ChallengeGeneratorServiceImpl(final Random random) {
         this.random = random;
     }
 
