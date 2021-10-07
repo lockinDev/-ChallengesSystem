@@ -15,10 +15,4 @@ public class MultiplicationApplication {
 		SpringApplication.run(MultiplicationApplication.class, args);
 	}
 
-	@Bean
-	public ObjectMapper objectMapper() {
-		var om = new ObjectMapper();
-		om.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
-		return om;
-	}
 }
