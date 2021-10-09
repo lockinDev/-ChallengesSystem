@@ -54,4 +54,15 @@ public class ChallengeAttemptControllerTest {
 		then(response.getContentAsString()).isEqualTo(jsonResultAttempt.write(expectedResponse).getJson());
 	}
 
+	@Test
+	void postInvalidResult() throws Exception {
+		
+		ChallengeAttemptDTO attemptDTO = new ChallengeAttemptDTO(2000, -70, "john", 1);
+
+		MockHttpServletResponse response = mvc.perform(post("/attempts").contentType(MediaType.APPLICATION_JSON)
+				.content(jsonRequestAttempt.write(attemptDTO).getJson())).andReturn().getResponse();
+
+		then(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+	}
+
 }
