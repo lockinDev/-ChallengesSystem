@@ -1,12 +1,20 @@
 package com.devlockin.multiplication.challenge.helper;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+
 import lombok.Value;
 /**
 * Attempt coming from the user
 */
 @Value
 public class ChallengeAttemptDTO {
+	@Min(1) @Max(99)
     int factorA, factorB;
+    @NotBlank
     String userAlias;
+    @Positive
     int guess;
 }
