@@ -58,5 +58,23 @@ public class ChallengeServiceTest {
         verify(userRepository).save(new User("test"));
         verify(attemptRepository).save(resultAttempt);
     }
+    
+    @Test
+    public void checkExistingUserTest() {
+        // given
+        User existingUser = new User(1L, "test");
+        given(userRepository.findByAlias("test"))
+                .willReturn(Optional.of(existingUser));
+        ChallengeAttemptDTO attemptDTO =
+                new ChallengeAttemptDTO(50, 60, "test", 5000);
+        // when
+        ChallengeAttempt resultAttempt =
+                challengeService.verifyAttempt(attemptDTO);
+        // then
+        then(resultAttempt.isCorrect()).isFalse();
+        then(resultAttempt.getUser()).isEqualTo(existingUser);
+        verify(userRepository, never()).save(any());
+        verify(attemptRepository).save(resultAttempt);
+    }
 
 }
