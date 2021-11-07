@@ -1,5 +1,7 @@
 package com.devlockin.multiplication.challenge.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.devlockin.multiplication.challenge.domain.ChallengeAttempt;
@@ -36,4 +38,9 @@ public class ChallengeServiceImpl implements ChallengeService {
 		return storedAttempt;
 
 	}
+	
+	@Override
+    public List<ChallengeAttempt> getStatsForUser(final String userAlias) {
+        return attemptRepository.findTop10ByUserAliasOrderByIdDesc(userAlias);
+    }
 }
