@@ -15,7 +15,7 @@ public class ChallengeServiceTest {
 
 	@BeforeEach
 	public void setUp() {
-		challengeService = new ChallengeServiceImpl();
+		//hallengeService = new ChallengeServiceImpl();
 	}
 
 	@Test
