@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.devlockin.multiplication.challenge.domain.ChallengeAttempt;
 import com.devlockin.multiplication.challenge.helper.ChallengeAttemptDTO;
+import com.devlockin.multiplication.challenge.helper.GamificationServiceClient;
 import com.devlockin.multiplication.challenge.repository.ChallengeAttemptRepository;
 import com.devlockin.multiplication.user.domain.User;
 import com.devlockin.multiplication.user.domain.UserRepository;
@@ -20,6 +21,7 @@ public class ChallengeServiceImpl implements ChallengeService {
 
 	private final UserRepository userRepository;
 	private final ChallengeAttemptRepository attemptRepository;
+    private final GamificationServiceClient gameClient;
 
 	@Override
 	public ChallengeAttempt verifyAttempt(ChallengeAttemptDTO attemptDTO) {
@@ -35,6 +37,11 @@ public class ChallengeServiceImpl implements ChallengeService {
 				attemptDTO.getFactorB(), attemptDTO.getGuess(), isCorrect);
 		// Stores the attempt
 		ChallengeAttempt storedAttempt = attemptRepository.save(checkedAttempt);
+
+        // Sends the attempt to gamification and prints the response
+        boolean status = gameClient.sendAttempt(storedAttempt);
+        log.info("Gamification service response: {}", status);
+		
 		return storedAttempt;
 
 	}
