@@ -9,7 +9,7 @@ import com.devlockin.multiplication.challenge.helper.ChallengeAttemptDTO;
 import com.devlockin.multiplication.challenge.helper.GamificationServiceClient;
 import com.devlockin.multiplication.challenge.repository.ChallengeAttemptRepository;
 import com.devlockin.multiplication.user.domain.User;
-import com.devlockin.multiplication.user.domain.UserRepository;
+import com.devlockin.multiplication.user.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -13,7 +13,7 @@ import com.devlockin.multiplication.challenge.repository.ChallengeAttemptReposit
 import com.devlockin.multiplication.challenge.service.ChallengeService;
 import com.devlockin.multiplication.challenge.service.ChallengeServiceImpl;
 import com.devlockin.multiplication.user.domain.User;
-import com.devlockin.multiplication.user.domain.UserRepository;
+import com.devlockin.multiplication.user.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
