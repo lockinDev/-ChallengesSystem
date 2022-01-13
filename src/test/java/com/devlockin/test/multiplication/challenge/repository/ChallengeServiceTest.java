@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.devlockin.multiplication.challenge.domain.ChallengeAttempt;
 import com.devlockin.multiplication.challenge.helper.ChallengeAttemptDTO;
+import com.devlockin.multiplication.challenge.helper.ChallengeEventPub;
 import com.devlockin.multiplication.challenge.helper.GamificationServiceClient;
 import com.devlockin.multiplication.challenge.repository.ChallengeAttemptRepository;
 import com.devlockin.multiplication.challenge.service.ChallengeService;
@@ -35,14 +36,14 @@ public class ChallengeServiceTest {
     @Mock
     private ChallengeAttemptRepository attemptRepository;
     @Mock
-    private GamificationServiceClient gamificationServiceClient ;
+    private ChallengeEventPub challengeEventPub;
     
     @BeforeEach
     public void setUp() {
         challengeService = new ChallengeServiceImpl(
                 userRepository,
                 attemptRepository,
-                gamificationServiceClient
+                challengeEventPub
         );
         given(attemptRepository.save(any()))
                 .will(returnsFirstArg());

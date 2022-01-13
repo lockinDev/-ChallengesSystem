@@ -25,7 +25,7 @@ public class GamificationServiceClient {
 
 	public boolean sendAttempt(final ChallengeAttempt attempt) {
 		try {
-			ChallengeSolvedDTO dto = new ChallengeSolvedDTO(attempt.getId(), attempt.isCorrect(), attempt.getFactorA(),
+			ChallengeSolvedEvent dto = new ChallengeSolvedEvent(attempt.getId(), attempt.isCorrect(), attempt.getFactorA(),
 					attempt.getFactorB(), attempt.getUser().getId(), attempt.getUser().getAlias());
 			ResponseEntity<String> r = restTemplate.postForEntity(gamificationHostUrl + "/attempts", dto, String.class);
 			log.info("Gamification service response: {}", r.getStatusCode());
