@@ -3,7 +3,7 @@ package com.devlockin.gamification.game.service;
 import java.util.List;
 
 import com.devlockin.gamification.game.helper.BadgeType;
-import com.devlockin.gamification.game.helper.ChallengeSolvedDTO;
+import com.devlockin.gamification.game.helper.ChallengeSolvedEvent;
 
 import lombok.Value;
 
@@ -15,7 +15,7 @@ public interface GameService {
 	 *                  @return a {@link GameResult} object containing the new
 	 *                  score and badge cards obtained
 	 */
-	GameResult newAttemptForUser(ChallengeSolvedDTO challenge);
+	GameResult newAttemptForUser(ChallengeSolvedEvent challenge);
 
 	@Value
 	class GameResult {

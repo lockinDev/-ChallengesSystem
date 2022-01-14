@@ -16,7 +16,7 @@ public interface BadgeProcessor {
 	 Optional<BadgeType> processForOptionalBadge(
 	 int currentScore,
 	 List<ScoreCard> scoreCardList,
-	 ChallengeSolvedDTO solved);
+	 ChallengeSolvedEvent solved);
 	 /**
 	 * @return the BadgeType object that this processor is handling. You can use
 	 * it to filter processors according to your needs.

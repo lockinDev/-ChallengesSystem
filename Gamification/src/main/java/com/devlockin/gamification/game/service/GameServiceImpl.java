@@ -10,7 +10,7 @@ import com.devlockin.gamification.game.domain.BadgeCard;
 import com.devlockin.gamification.game.domain.ScoreCard;
 import com.devlockin.gamification.game.helper.BadgeProcessor;
 import com.devlockin.gamification.game.helper.BadgeType;
-import com.devlockin.gamification.game.helper.ChallengeSolvedDTO;
+import com.devlockin.gamification.game.helper.ChallengeSolvedEvent;
 import com.devlockin.gamification.game.repository.BadgeRepository;
 import com.devlockin.gamification.game.repository.ScoreRepository;
 
@@ -25,7 +25,7 @@ public class GameServiceImpl implements GameService {
 	private final List<BadgeProcessor> badgeProcessors;
 
 	@Override
-	public GameResult newAttemptForUser(final ChallengeSolvedDTO challenge) {
+	public GameResult newAttemptForUser(final ChallengeSolvedEvent challenge) {
 		// We give points only if it's correct
 		if (challenge.isCorrect()) {
 			ScoreCard scoreCard = new ScoreCard(challenge.getUserId(), challenge.getAttemptId());
@@ -46,7 +46,7 @@ public class GameServiceImpl implements GameService {
 	 * Checks the total score and the different score cards obtained to give new
 	 * badges in case their conditions are met.
 	 */
-	private List<BadgeCard> processForBadges(final ChallengeSolvedDTO solvedChallenge) {
+	private List<BadgeCard> processForBadges(final ChallengeSolvedEvent solvedChallenge) {
 		Optional<Integer> optTotalScore = scoreRepository.getTotalScoreForUser(solvedChallenge.getUserId());
 		if (optTotalScore.isEmpty())
 			return Collections.emptyList();

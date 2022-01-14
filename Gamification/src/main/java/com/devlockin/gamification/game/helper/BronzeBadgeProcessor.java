@@ -11,7 +11,7 @@ import java.util.Optional;
 public class BronzeBadgeProcessor implements BadgeProcessor {
 	@Override
 	public Optional<BadgeType> processForOptionalBadge(int currentScore, List<ScoreCard> scoreCardList,
-			ChallengeSolvedDTO solved) {
+			ChallengeSolvedEvent solved) {
 		return currentScore > 50 ? Optional.of(BadgeType.BRONZE) : Optional.empty();
 	}
 
