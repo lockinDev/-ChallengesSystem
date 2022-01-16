@@ -46,6 +46,21 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- Spring cloud dependencies -->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- Miscellaneous dependencies -->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -65,7 +80,17 @@
 
 	</dependencies>
 
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
