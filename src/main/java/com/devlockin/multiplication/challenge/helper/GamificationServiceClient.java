@@ -15,19 +15,19 @@ import lombok.extern.slf4j.Slf4j;
 public class GamificationServiceClient {
 
 	private final RestTemplate restTemplate;
-	private final String gamificationHostUrl;
 
-	public GamificationServiceClient(final RestTemplateBuilder builder,
-			@Value("${service.gamification.host}") final String gamificationHostUrl) {
-		restTemplate = builder.build();
-		this.gamificationHostUrl = gamificationHostUrl;
+	public GamificationServiceClient(final RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
 	}
 
 	public boolean sendAttempt(final ChallengeAttempt attempt) {
 		try {
-			ChallengeSolvedEvent dto = new ChallengeSolvedEvent(attempt.getId(), attempt.isCorrect(), attempt.getFactorA(),
-					attempt.getFactorB(), attempt.getUser().getId(), attempt.getUser().getAlias());
-			ResponseEntity<String> r = restTemplate.postForEntity(gamificationHostUrl + "/attempts", dto, String.class);
+			ChallengeSolvedEvent dto = new ChallengeSolvedEvent(attempt.getId(), attempt.isCorrect(),
+					attempt.getFactorA(), attempt.getFactorB(), attempt.getUser().getId(),
+					attempt.getUser().getAlias());
+			ResponseEntity<String> r = restTemplate.postForEntity(
+                    "http://gamification/attempts", dto,
+                    String.class);
 			log.info("Gamification service response: {}", r.getStatusCode());
 			return r.getStatusCode().is2xxSuccessful();
 		} catch (Exception e) {
