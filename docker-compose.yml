@@ -19,6 +19,8 @@ services:
       - "8500:8500"
     networks:
         - multired_net
+    environment:
+      - HOST_IP=$HOST_IP
    rabbitmq:
     command: sh -c "rabbitmq-plugins enable rabbitmq_management; rabbitmq-server"
     image: rabbitmq:3-management-alpine
@@ -35,10 +37,10 @@ services:
     image: multiplication:latest
     logging:
        driver: json-file
-    depends-on:
-       -rabbitmq
-       -consul
-       -nginx
+    depends_on:
+       - rabbitmq
+       - consul
+       - nginx
     networks:
         - multired_net
     
