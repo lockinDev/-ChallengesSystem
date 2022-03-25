@@ -1,0 +1,17 @@
+[
+	{
+		"key": "config/",
+		"flags": 0,
+		"value": ""
+	},
+	{
+		"key": "config/defaults/",
+		"flags": 0,
+		"value": ""
+	},
+	{
+		"key": "config/defaults/application.properties",
+		"flags": 0,
+		"value": "c3ByaW5nLmFwcGxpY2F0aW9uLm5hbWU9bXVsdGlwbGljYXRpb24Kc2VydmVyLmVycm9yLmluY2x1ZGVtZXNzYWdlPWFsd2F5cwpzZXJ2ZXIuZXJyb3IuaW5jbHVkZWJpbmRpbmdlcnJvcnM9YWx3YXlzCgojIERhdGFsYXllciBjb25maWd1cmF0aW9uCgpzcHJpbmcuaDIuY29uc29sZS5lbmFibGVkPXRydWUKc3ByaW5nLmRhdGFzb3VyY2UudXJsPWpkYmM6aDI6ZmlsZTp+L211bHRpcGxpY2F0aW9uO0RCX0NMT1NFX09OX0VYSVQ9RkFMU0UKc3ByaW5nLmpwYS5oaWJlcm5hdGUuZGRsYXV0bz1ub25lIAoKCnNlcnZpY2UuZ2FtaWZpY2F0aW9uLmhvc3Q9aHR0cDovL2xvY2FsaG9zdDo4MDgxCgojTWVzc2FnaW5nIHByb3BlcnRpZXMuCnNwcmluZy5yYWJiaXRtcS5ob3N0ID0gcmFiYml0bXEKc3ByaW5nLnJhYmJpdG1xLnBvcnQgPSA1NjcyCnNwcmluZy5yYWJiaXRtcS51c2VybmFtZSA9IGd1ZXN0CnNwcmluZy5yYWJiaXRtcS5wYXNzd29yZCA9IGd1ZXN0IApzcHJpbmcucmFiYml0bXEudmlydHVhbGhvc3Q9IC8KYW1xcC5leGNoYW5nZS5hdHRlbXB0cyA9IGF0dGVtcHRzLnRvcGljCmxvZ2dpbmcubGV2ZWwub3JnLnNwcmluZ2ZyYW1ld29yay5hbXFwLnJhYmJpdC5jb3JlLlJhYmJpdEFkbWluID0gREVCVUcKCiNoZWFsdGgKbWFuYWdlbWVudC5lbmRwb2ludC5oZWFsdGguc2hvd2RldGFpbHM9YWx3YXlzCgojQ29uc3VsIGNvbmZpZ3VyYXRpb24jCnNwcmluZy5jbG91ZC5jb25zdWwuZGlzY292ZXJ5Lmluc3RhbmNlSWQ9JHtzcHJpbmcuYXBwbGljYXRpb24ubmFtZX06JHtyYW5kb20udmFsdWV9CnNwcmluZy5jbG91ZC5jb25zdWwuaG9zdD1jb25zdWwKc3ByaW5nLmNsb3VkLmNvbnN1bC5wb3J0PTg1MDA="
+	}
+]
