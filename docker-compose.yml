@@ -7,6 +7,8 @@ services:
        - consul
     ports:
        - "8080:8080"
+    networks:
+        - multired_net
    consul:
     command: -server -bootstrap -advertise ${HOST_IP}
     image: progrium/consul
@@ -15,6 +17,8 @@ services:
         driver: json-file
     ports:
       - "8500:8500"
+    networks:
+        - multired_net
    rabbitmq:
     command: sh -c "rabbitmq-plugins enable rabbitmq_management; rabbitmq-server"
     image: rabbitmq:3-management-alpine
@@ -26,9 +30,19 @@ services:
         - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
         - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
     networks:
-        - rabbitmq_go_net
+        - multired_net
+   multiplication:
+    image: multiplication:latest
+    logging:
+       driver: json-file
+    depends-on:
+       -rabbitmq
+       -consul
+       -nginx
+    networks:
+        - multired_net
     
 
 networks:
-  rabbitmq_go_net:
+  multired_net:
     driver: bridge
